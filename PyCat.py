@@ -5,7 +5,11 @@ import socket
 import getopt
 import threading
 import subprocess
+import os
+import struct
 
+from netaddr import IPNetwork,IPAddress
+from ctypes import *
 
 # Define global variables
 listen			   = False
@@ -19,29 +23,16 @@ port			   = 0
 
 # Usage/Help function
 def usage():
-	# ASCII Logo
-	print '8888888b.          .d8888b.          888     '   
-	print '888   Y88b        d88P  Y88b         888_    '
-	print '888    888        888    888         888     '
-	print '888   d88P888  888888         8888b.  888888 '
-	print '8888888P" 888  888888           "88b8 88     ' 
-	print '888       888  888888    888. d888888 888    '
-	print '888       Y88b 888Y88b  d88P 888  888 Y88b.  '
-	print '888        "Y88888 "Y8888P"  "Y888888  "Y888 '
-	print '               888                           '
-	print '          Y8b d88P                           '  
-	print '           "Y88P"                            '
-	# ASCII Logo
-	
+
 	# Help text
-	print
-	print
-	print "PyCat Net Tool"
 	print
 	print "Usage: PyCat.py -t target_host -p port"
 	print
+	print "-h --help"
+	print "Display this help message"
+	print
 	print "-l --listen"
-	print "listen on [host]:[port] for incoming connections"
+	print "Listen on [host]:[port] for incoming connections"
 	print
 	print "-c --command"
 	print "Initialize a command shell"
@@ -59,6 +50,35 @@ def usage():
 	print "echo 'ABCDEFGHI' | ./PyCat.py -t 192.168.11.12 -p 135"
 	sys.exit(0)
 
+def scan():
+	# ASCII Logo
+	print '8888888b.          .d8888b.          888     '   
+	print '888   Y88b        d88P  Y88b         888_    '
+	print '888    888        888    888         888     '
+	print '888   d88P888  888888         8888b.  888888 '
+	print '8888888P" 888  888888           "88b8 88     ' 
+	print '888       888  888888    888. d888888 888    '
+	print '888       Y88b 888Y88b  d88P 888  888 Y88b.  '
+	print '888        "Y88888 "Y8888P"  "Y888888  "Y888 '
+	print '               888                           '
+	print '          Y8b d88P                           '  
+	print '           "Y88P"                            '
+	# ASCII Logo
+	print
+	print
+	print "Welcome to PyCat Net Tool"
+	print
+	print "The program will now scan the local network."
+	print "Hit CTRL+C to interrupt scanning and to proceed to display"
+	print "options for interacting with hosts that are up"
+	print
+	print "[+]Scanning the local network."
+	import scanner
+	run = scanner.Scan
+	run
+	print "[+]Scanning completed"
+	usage()
+	
 
 def client_sender(buffer):
 	
@@ -190,7 +210,8 @@ def client_handler(client_socket):
 			# Send the response back
 			client_socket.send(response)
 
-
+			
+			
 # Main funtion	
 def main():
 	global listen
@@ -202,11 +223,11 @@ def main():
 	
 	# Check if proper arguments are passed
 	if not len(sys.argv[1:]):
-		usage()
+		scan()
 		
 	# Read commandline options
 	try:
-		opts, args = getopt.getopt(sys.argv[1:],"hle:t:p:cu",["help","listen","execute","target","port","command","upload"])
+		opts, args = getopt.getopt(sys.argv[1:],"hle:t:p:cu",["help","scan","listen","execute","target","port","command","upload"])
 	except getopt.GetoptError as err:
 		print str(err)
 		usage()
@@ -214,6 +235,11 @@ def main():
 	for o,a in opts:
 		if o in ("-h","--help"):
 			usage()
+		elif a in ("-s", "--scan"):
+			import scanner
+			run = scanner.scan
+			run
+			sys.exit()
 		elif o in ("-1", "--listen"):
 			listen = True
 		elif o in ("-e", "--execute"):
@@ -243,4 +269,3 @@ def main():
 		server_loop
 	
 main()
-

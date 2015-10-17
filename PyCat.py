@@ -235,12 +235,7 @@ def main():
 	for o,a in opts:
 		if o in ("-h","--help"):
 			usage()
-		elif a in ("-s", "--scan"):
-			import scanner
-			run = scanner.scan
-			run
-			sys.exit()
-		elif o in ("-1", "--listen"):
+		elif o in ("-l", "--listen"):
 			listen = True
 		elif o in ("-e", "--execute"):
 			execute = a

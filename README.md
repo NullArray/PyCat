@@ -8,13 +8,13 @@ PyCat.py -h --help
 Display this help message
 
 PyCat.py -l --listen
-Listen on [host]:[port] for incoming connections"
+Listen on [host]:[port] for incoming connections
 
 PyCat.py -c --command
 Initialize a command shell
 
 PyCat.py -e --execute=file_to_run
-Execute file upon connection"
+Execute file upon connection
 
 PyCat.py -u --upload=destination
 Upon connection upload file and write to [destination]

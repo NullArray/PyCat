@@ -20,7 +20,7 @@ PyCat.py -u --upload=destination
 Upon connection upload file and write to [destination]
 ```
 
-The target host and port can be specified with the -t and -p options respectively.
+The target host and port can be specified with the -t and -p options respectively as shown in the example below.
 ```
 PyCat.py -t 192.168.0.1 -p 5555 -l -u=c:\\target.exe"
 ```

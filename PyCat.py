@@ -70,13 +70,13 @@ def scan():
 	print
 	print "The program will now scan the local network."
 	print "Hit CTRL+C to interrupt scanning and to proceed to display"
-	print "options for interacting with hosts that are up"
+	print "options for interacting with hosts that are up."
 	print
 	print "[+]Scanning the local network."
 	import scanner
 	run = scanner.Scan
 	run
-	print "[+]Scanning completed"
+	print "[+]Scanning completed."
 	usage()
 	
 
@@ -221,13 +221,13 @@ def main():
 	global upload_destination
 	global target
 	
-	# Check if proper arguments are passed
+	# Check if args are passed
 	if not len(sys.argv[1:]):
 		scan()
 		
 	# Read commandline options
 	try:
-		opts, args = getopt.getopt(sys.argv[1:],"hle:t:p:cu",["help","scan","listen","execute","target","port","command","upload"])
+		opts, args = getopt.getopt(sys.argv[1:],"hle:t:p:cu",["help","listen","execute","target","port","command","upload"])
 	except getopt.GetoptError as err:
 		print str(err)
 		usage()

@@ -96,7 +96,7 @@ class Scan():
 		sniffer.ioctl(socket.SIO_RCVALL, socket.RCVALL_ON)
 
 
-	# Start sending packets
+	# Start sending packets 
 	t = threading.Thread(target=udp_sender,args=(subnet,magic_message))
 	t.start()        
 

@@ -51,7 +51,7 @@ class Scan():
 			# Map constants to their names
 			self.protocol_map = {1:"ICMP", 6:"TCP", 17:"UDP"}
         
-			# Human readable IP addresses
+			# Readable IP addresses
 			self.src_address = socket.inet_ntoa(struct.pack("<L",self.src))
 			self.dst_address = socket.inet_ntoa(struct.pack("<L",self.dst))
     
@@ -91,7 +91,6 @@ class Scan():
 	sniffer.setsockopt(socket.IPPROTO_IP, socket.IP_HDRINCL, 1)
 
 	# If we're on Windows we need to send some ioctls
-	# to setup promiscuous mode
 	if os.name == "nt":
 		sniffer.ioctl(socket.SIO_RCVALL, socket.RCVALL_ON)
 
@@ -121,7 +120,7 @@ class Scan():
             
 				# Check for the TYPE 3 and CODE 3          
 				if icmp_header.code == 3 and icmp_header.type == 3:
-					# Make sure we receive response
+					# Make sure we recieve response
 					if IPAddress(ip_header.src_address) in IPNetwork(subnet):
                     
 						# Test for our magic message
@@ -130,6 +129,6 @@ class Scan():
 							
 	# Handle CTRL-C
 	except KeyboardInterrupt:
-		# If we're on Windows turn off promiscuous mode
+		# If  Windows, turn off promiscuous mode
 		if os.name == "nt":
 			sniffer.ioctl(socket.SIO_RCVALL, socket.RCVALL_OFF)	

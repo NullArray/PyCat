@@ -17,7 +17,7 @@ PyCat.py -e --execute=file_to_run
 Execute file upon connection"
 
 PyCat.py -u --upload=destination
-Upon connection upload file and write to [destination]`
+Upon connection upload file and write to [destination]
 ```
 
 This tool was inspired by Black Hat Python and i plan on expanding it further in the future.

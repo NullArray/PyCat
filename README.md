@@ -19,6 +19,10 @@ Execute file upon connection
 PyCat.py -u --upload=destination
 Upon connection upload file and write to [destination]
 ```
+
 The target host and port can be specified with the -t and -p options respectively.
+```
+PyCat.py -t 192.168.0.1 -p 5555 -l -u=c:\\target.exe"
+```
 
 This tool was inspired by Black Hat Python and i plan on expanding it further in the future.

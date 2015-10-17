@@ -7,8 +7,6 @@ Pycat is a python replacement tool for netcat. That automatically scans for host
 PyCat.py -h --help
 Display this help message
 
-PyCat.py -t target_host -p port
-
 PyCat.py -l --listen
 Listen on [host]:[port] for incoming connections
 

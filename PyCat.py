@@ -197,7 +197,7 @@ def client_handler(client_socket):
 		
 		while True:
 			# Show prompt
-			client_socket.send("<BHP:#> ")
+			client_socket.send("<Shell:#> ")
 			
 			# Now we recieve until we see a linefeed (enter key)
 			cmd_buffer = ""

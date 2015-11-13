@@ -44,7 +44,7 @@ class Scan():
 		]
     
 		def __new__(self, socket_buffer=None):
-				return self.from_buffer_copy(socket_buffer)    
+			return self.from_buffer_copy(socket_buffer)    
         
 		def __init__(self, socket_buffer=None):
 

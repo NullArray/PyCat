@@ -240,7 +240,7 @@ def main():
             listen = True
         elif o in ("-e", "--execute"):
             execute = a
-        elif o in ("-c", "--commandshell"):
+        elif o in ("-c", "--command"):
             command = True
         elif o in ("-u", "--upload"):
             upload_destination = a

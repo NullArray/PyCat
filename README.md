@@ -5,7 +5,7 @@ Pycat is a python replacement tool for netcat. That automatically scans for host
 
 # Update
 
-I've added a timer set to 15 seconds on the main loop in scanner.py so that even if the scanner can't detect anything on the subnet or we are unable to send CTRL+D; e.g. we have PyCat on a remote server and can't send a keyboard interrupt through our shell, the program won't be scanning indefinitely and will automatically continue with it's normal operation.
+I've added a timer set to 15 seconds on the main loop in scanner.py so that even if the scanner can't detect anything on the subnet or we are unable to send CTRL+C; e.g. we have PyCat on a remote server and can't send a keyboard interrupt through our shell, the program won't be scanning indefinitely and will automatically continue with it's normal operation.
 
 
 # Usage

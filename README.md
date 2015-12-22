@@ -1,7 +1,16 @@
 # PyCat
 Python Net Tool
 
-Pycat is a python replacement tool for netcat. That automatically scans for hosts that are up on the local network. Simply run PyCat.py without arguments to automatically start scanning the network. CTRL+C will interrupt scanning and display the options for interacting with hosts that are up. The options are as follows.
+Pycat is a python replacement tool for netcat. That automatically scans for hosts that are up on the local network. Simply run PyCat.py without arguments to automatically start scanning the network. CTRL+C will interrupt scanning and display the options for interacting with hosts that are up.
+
+# Update
+
+I've added a timer set to 15 seconds on the main loop in scanner.py so that even if the scanner can't detect anything on the subnet or we are unable to send CTRL+D; e.g. we have PyCat on a remote server and can't send a keyboard interrupt through our shell, the program won't be scanning indefinitely and will automatically continue with it's normal operation.
+
+
+# Usage
+
+The options to use PyCat are as follows.
 
 ```
 PyCat.py -h --help

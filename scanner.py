@@ -2,6 +2,7 @@ import socket
 import os
 import struct
 import threading
+import time
 
 from netaddr import IPNetwork,IPAddress
 from ctypes import *
@@ -99,8 +100,10 @@ class Scan():
 	t = threading.Thread(target=udp_sender,args=(subnet,magic_message))
 	t.start()        
 
+	# Timer, so that we won't get stuck in case we cannot send CTRL+C 
 	try:
-		while True:
+		start = time.time()
+		while (time.time() - start < 15):
         
 			# Read in a packet
 			raw_buffer = sniffer.recvfrom(65565)[0]

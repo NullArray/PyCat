@@ -1,7 +1,7 @@
 # PyCat
 Python Net Tool
 
-Pycat is a python replacement tool for netcat. That automatically scans for hosts that are up on the local network. Simply run PyCat.py without arguments to automatically start scanning the network. CTRL+C will interrupt scanning and display the options for interacting with hosts that are up.
+PyCat is a python replacement tool for netcat. That automatically scans for hosts that are up on the local network. Simply run PyCat.py without arguments to automatically start scanning the network. CTRL+C will interrupt scanning and display the options for interacting with hosts that are up.
 
 # Update
 
@@ -31,7 +31,7 @@ Upon connection upload file and write to [destination]
 
 The target host and port can be specified with the -t and -p options respectively as shown in the example below.
 ```
-PyCat.py -t 192.168.0.1 -p 5555 -l -u=c:\\target.exe"
+PyCat.py -t 192.168.0.1 -p 5555 -l -u=c:\\target.exe
 ```
 
 This tool was inspired by Black Hat Python and i plan on expanding it further in the future.

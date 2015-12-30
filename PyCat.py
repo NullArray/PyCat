@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # PyCat is a python replacement for Netcat
 
 import sys

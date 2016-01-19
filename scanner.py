@@ -93,6 +93,7 @@ class Scan():
 		print
 		print "[!]Pycat requires administrative privilege to scan the local network. Exiting."
 		sys.exit(0)
+
 	sniffer.setsockopt(socket.IPPROTO_IP, socket.IP_HDRINCL, 1)
 
 	# If we're on Windows we need to send some ioctls

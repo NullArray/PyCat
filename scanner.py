@@ -91,7 +91,7 @@ class Scan():
 		sniffer.bind((host, 0))
 	except socket.error:
 		print
-		print "[!]Pycat requires administrative privilege to scan the local network. Exiting."
+		print "[!]PyCat requires administrative privilege to scan the local network. Exiting."
 		sys.exit(0)
 
 	sniffer.setsockopt(socket.IPPROTO_IP, socket.IP_HDRINCL, 1)

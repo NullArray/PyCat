@@ -3,6 +3,7 @@ import os
 import struct
 import threading
 import time
+import sys
 
 from netaddr import IPNetwork,IPAddress
 from ctypes import *
@@ -84,11 +85,14 @@ class Scan():
 		socket_protocol = socket.IPPROTO_IP 
 	else:
 		socket_protocol = socket.IPPROTO_ICMP
-    
-	sniffer = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket_protocol)
-
-	sniffer.bind((host, 0))
-
+    	
+    	try:
+		sniffer = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket_protocol)
+		sniffer.bind((host, 0))
+	except socket.error:
+		print
+		print "[!]Pycat requires administrative privilege to scan the local network. Exiting."
+	
 	sniffer.setsockopt(socket.IPPROTO_IP, socket.IP_HDRINCL, 1)
 
 	# If we're on Windows we need to send some ioctls
@@ -130,7 +134,7 @@ class Scan():
 						if raw_buffer[len(raw_buffer)-len(magic_message):] == magic_message:
 							print "[+]Host Up: %s" % ip_header.src_address
 							
-	# Handle CTRL-C
+	# Handle CTRL+C
 	except KeyboardInterrupt:
 		# If  Windows, turn off promiscuous mode
 		if os.name == "nt":

@@ -119,7 +119,7 @@ def client_sender(buffer):
             client.send(buffer)
 
     except:
-        print "[*] Exception! Exiting."
+        print "[!] Exception, exiting."
 
         # Close connection
         client.close()

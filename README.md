@@ -34,4 +34,4 @@ The target host and port can be specified with the -t and -p options respectivel
 PyCat.py -t 192.168.0.1 -p 5555 -l -u=c:\\target.exe
 ```
 
-This tool was inspired by Black Hat Python and i plan on expanding it further in the future.
+This tool was by in large inspired by Black Hat Python and i plan on expanding it further in the future.
